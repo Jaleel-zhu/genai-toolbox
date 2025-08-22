@@ -1176,7 +1176,47 @@ with filters, ordering, and limit capabilities.&lt;/p>
 &lt;/table>
 &lt;h3 id="filter-format">Filter Format&lt;/h3>
 &lt;p>Each filter in the &lt;code>filters&lt;/code> array should be a JSON string with the following
-structure:&lt;/p></description></item><item><title>firestore-validate-rules</title><link>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+structure:&lt;/p></description></item><item><title>firestore-update-document</title><link>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-update-document/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-update-document/</guid><description>&lt;h2 id="description">Description&lt;/h2>
+&lt;p>The &lt;code>firestore-update-document&lt;/code> tool allows you to update existing documents in Firestore. It supports all Firestore data types using Firestore&amp;rsquo;s native JSON format. The tool can perform both full document updates (replacing all fields) or selective field updates using an update mask. When using an update mask, fields referenced in the mask but not present in the document data will be deleted from the document, following Firestore&amp;rsquo;s native behavior.&lt;/p>
+&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Parameter&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Required&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>documentPath&lt;/code>&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>Yes&lt;/td>
+ &lt;td>The path of the document which needs to be updated&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>documentData&lt;/code>&lt;/td>
+ &lt;td>map&lt;/td>
+ &lt;td>Yes&lt;/td>
+ &lt;td>The data to update in the document. Must use &lt;a href="https://cloud.google.com/firestore/docs/reference/rest/Shared.Types/ArrayValue#Value">Firestore&amp;rsquo;s native JSON format&lt;/a> with typed values&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>updateMask&lt;/code>&lt;/td>
+ &lt;td>array&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>The selective fields to update. If not provided, all fields in documentData will be updated. When provided, only the specified fields will be updated. Fields referenced in the mask but not present in documentData will be deleted from the document&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>returnData&lt;/code>&lt;/td>
+ &lt;td>boolean&lt;/td>
+ &lt;td>No&lt;/td>
+ &lt;td>If set to true, the output will include the data of the updated document. Defaults to false to help avoid overloading the context&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="output">Output&lt;/h2>
+&lt;p>The tool returns a map containing:&lt;/p></description></item><item><title>firestore-validate-rules</title><link>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-validate-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/firestore/firestore-validate-rules/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The &lt;code>firestore-validate-rules&lt;/code> tool validates Firestore security rules syntax
 and semantic correctness without deploying them. It provides detailed error
 reporting with source positions and code snippets.&lt;/p>
@@ -4447,12 +4487,148 @@ to expose your developer assistant tools to a Postgres instance:&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>This guide assumes you have already done the following:&lt;/p>
 &lt;ol>
-&lt;li>Installed &lt;a href="https://wiki.python.org/moin/BeginnersGuide/Download">Python 3.9+&lt;/a> (including &lt;a href="https://pip.pypa.io/en/stable/installation/">pip&lt;/a> and
-your preferred virtual environment tool for managing dependencies e.g. &lt;a href="https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments">venv&lt;/a>).&lt;/li>
-&lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>.&lt;/li>
+&lt;li>Installed [Python 3.9+][install-python] (including [pip][install-pip] and
+your preferred virtual environment tool for managing dependencies e.g. [venv][install-venv]).&lt;/li>
+&lt;li>Installed [PostgreSQL 16+ and the &lt;code>psql&lt;/code> client][install-postgres].&lt;/li>
 &lt;/ol>
 &lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
-&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ &lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
 &lt;code>vertexai=True&lt;/code> or a Google GenAI model), follow these one-time setup steps for
 local development:&lt;/p>
 &lt;ol>
@@ -4543,8 +4719,145 @@ roles):&lt;/p>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>.&lt;/li>
 &lt;/ol>
 &lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
-&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
-Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ &lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
+&lt;code>vertexai=True&lt;/code> or a Google GenAI model), follow these one-time setup steps for
+local development:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/p>
@@ -4553,14 +4866,7 @@ Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
 &lt;p>&lt;a href="https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment">Set up Application Default Credentials (ADC)&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Set your project and enable Vertex AI&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcloud config &lt;span class="nb">set&lt;/span> project YOUR_PROJECT_ID
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gcloud services &lt;span class="nb">enable&lt;/span> aiplatform.googleapis.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Deploy to Kubernetes</title><link>https://Jaleel-zhu.github.io/genai-toolbox/how-to/deploy_gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/how-to/deploy_gke/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
+&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>Deploy to Kubernetes</title><link>https://Jaleel-zhu.github.io/genai-toolbox/how-to/deploy_gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/how-to/deploy_gke/</guid><description>&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;ol>
 &lt;li>
 &lt;p>Set the PROJECT_ID environment variable:&lt;/p>
@@ -4650,8 +4956,145 @@ section.&lt;/p>
 &lt;li>Installed &lt;a href="https://www.postgresql.org/download/">PostgreSQL 16+ and the &lt;code>psql&lt;/code> client&lt;/a>.&lt;/li>
 &lt;/ol>
 &lt;h3 id="cloud-setup-optional">Cloud Setup (Optional)&lt;/h3>
-&lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
-Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ &lt;p>If you plan to use &lt;strong>Google Cloud’s Vertex AI&lt;/strong> with your agent (e.g., using
+&lt;code>vertexai=True&lt;/code> or a Google GenAI model), follow these one-time setup steps for
+local development:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs/install">Install the Google Cloud CLI&lt;/a>&lt;/p>
@@ -4660,14 +5103,7 @@ Gemini or PaLM models), follow these one-time setup steps:&lt;/p>
 &lt;p>&lt;a href="https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment">Set up Application Default Credentials (ADC)&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Set your project and enable Vertex AI&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">gcloud config &lt;span class="nb">set&lt;/span> project YOUR_PROJECT_ID
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gcloud services &lt;span class="nb">enable&lt;/span> aiplatform.googleapis.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol>
-&lt;h2 id="step-1-set-up-your-database">Step 1: Set up your database&lt;/h2>
-&lt;p>In this section, we will create a database, insert some data that needs to be
-accessed by our agent, and create a database user for Toolbox to connect with.&lt;/p></description></item><item><title>Export Telemetry</title><link>https://Jaleel-zhu.github.io/genai-toolbox/how-to/export_telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/how-to/export_telemetry/</guid><description>&lt;h2 id="about">About&lt;/h2>
+&lt;p>Set your project and enable Vertex AI&lt;/p></description></item><item><title>Export Telemetry</title><link>https://Jaleel-zhu.github.io/genai-toolbox/how-to/export_telemetry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://Jaleel-zhu.github.io/genai-toolbox/how-to/export_telemetry/</guid><description>&lt;h2 id="about">About&lt;/h2>
 &lt;p>The &lt;a href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector&lt;/a> offers a vendor-agnostic
 implementation of how to receive, process and export telemetry data. It removes
 the need to run, operate, and maintain multiple agents/collectors.&lt;/p>
