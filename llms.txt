@@ -53,6 +53,7 @@ List of reference documentation for resources in Toolbox.
   - [Cloud SQL for MySQL](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/cloud-sql-mysql/): Cloud SQL for MySQL is a fully-managed database service for MySQL.
   - [Cloud SQL for PostgreSQL](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/cloud-sql-pg/): Cloud SQL for PostgreSQL is a fully-managed database service for Postgres.
   - [Cloud SQL for SQL Server](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/cloud-sql-mssql/): Cloud SQL for SQL Server is a fully-managed database service for SQL Server.
+  - [Cloud SQL Admin](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/cloud-sql-admin/): A "cloud-sql-admin" source provides a client for the Cloud SQL Admin API.
   - [couchbase](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/couchbase/): A "couchbase" source connects to a Couchbase database.
   - [Dataplex](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/dataplex/): Dataplex Universal Catalog is a unified, intelligent governance solution for data and AI assets in Google Cloud. Dataplex Universal Catalog powers AI, analytics, and business intelligence at scale.
   - [Dgraph](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/dgraph/): Dgraph is fully open-source, built-for-scale graph database for Gen AI workloads
@@ -73,6 +74,7 @@ List of reference documentation for resources in Toolbox.
   - [Trino](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/trino/): Trino is a distributed SQL query engine for big data analytics.
   - [Valkey](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/valkey/): Valkey is an open-source, in-memory data structure store, forked from Redis.
   - [YugabyteDB](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/yugabytedb/): YugabyteDB is a high-performance, distributed SQL database. 
+  - [AlloyDB Admin](https://Jaleel-zhu.github.io/genai-toolbox/resources/sources/alloydb-admin/): The "alloydb-admin" source provides a client for the AlloyDB API.
 - [Tools](https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/): Tools define actions an agent can take -- such as reading and writing to a source.
   - [AlloyDB AI NL](https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/alloydbainl/): AlloyDB AI NL Tool.
   - [BigQuery](https://Jaleel-zhu.github.io/genai-toolbox/resources/tools/bigquery/): Tools that work with BigQuery Sources.
