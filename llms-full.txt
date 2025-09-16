@@ -5473,6 +5473,9 @@ to a database by following these instructions][csql-mssql-connect].
 - [`mssql-execute-sql`](../tools/mssql/mssql-execute-sql.md)  
   Run parameterized SQL Server queries in Cloud SQL for SQL Server.
 
+- [`mssql-list-tables`](../tools/mssql/mssql-list-tables.md)  
+  List tables in a Cloud SQL for SQL Server database.
+
 ### Pre-built Configurations
 
 - [Cloud SQL for SQL Server using MCP](https://googleapis.github.io/genai-toolbox/how-to/connect-ide/cloud_sql_mssql_mcp/)  
@@ -6763,6 +6766,9 @@ amount of data through a structured format.
 
 - [`mssql-execute-sql`](../tools/mssql/mssql-execute-sql.md)  
   Run parameterized SQL Server queries in SQL Server.
+
+- [`mssql-list-tables`](../tools/mssql/mssql-list-tables.md)  
+  List tables in a SQL Server database.
 
 ## Requirements
 
@@ -9539,6 +9545,12 @@ See guides, [Connect from your IDE](../how-to/connect-ide/_index.md), for detail
 *   **Tools:**
     *   `execute_sql`: Executes a SQL query.
     *   `list_tables`: Lists tables in the database.
+    *   `list_autovacuum_configurations`: Lists autovacuum configurations in the database.
+    *   `list_memory_configurations`: Lists memory-related configurations in the database.
+    *   `list_top_bloated_tables`: List top bloated tables in the database.
+    *   `list_replication_slots`: Lists replication slots in the database.
+    *   `list_invalid_indexes`: Lists invalid indexes in the database.
+    *   `get_query_plan`: Generate the execution plan of a statement.
 
 ## AlloyDB Postgres Admin
 
@@ -9613,6 +9625,12 @@ See guides, [Connect from your IDE](../how-to/connect-ide/_index.md), for detail
 *   **Tools:**
     *   `execute_sql`: Executes a SQL query.
     *   `list_tables`: Lists tables in the database.
+    *   `list_autovacuum_configurations`: Lists autovacuum configurations in the database.
+    *   `list_memory_configurations`: Lists memory-related configurations in the database.
+    *   `list_top_bloated_tables`: List top bloated tables in the database.
+    *   `list_replication_slots`: Lists replication slots in the database.
+    *   `list_invalid_indexes`: Lists invalid indexes in the database.
+    *   `get_query_plan`: Generate the execution plan of a statement.
 
 ## Cloud SQL for SQL Server
 
@@ -9750,6 +9768,12 @@ See guides, [Connect from your IDE](../how-to/connect-ide/_index.md), for detail
 *   **Tools:**
     *   `execute_sql`: Executes a SQL query.
     *   `list_tables`: Lists tables in the database.
+    *   `list_autovacuum_configurations`: Lists autovacuum configurations in the database.
+    *   `list_memory_configurations`: Lists memory-related configurations in the database.
+    *   `list_top_bloated_tables`: List top bloated tables in the database.
+    *   `list_replication_slots`: Lists replication slots in the database.
+    *   `list_invalid_indexes`: Lists invalid indexes in the database.
+    *   `get_query_plan`: Generate the execution plan of a statement.
 
 ## Spanner (GoogleSQL dialect)
 
